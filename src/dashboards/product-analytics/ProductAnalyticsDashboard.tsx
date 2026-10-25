@@ -66,7 +66,7 @@ export default function ProductAnalyticsDashboard() {
           <p className="text-sm text-muted">Dashboard 02 · Mock data</p>
           <h1 className="mt-1 text-5xl font-light tracking-tight">Product Analytics by Grace</h1>
           <p className="mt-2 max-w-xl text-muted">
-            Weekly signup cohorts, retention decay, and DAU/MAU stickiness by customer segment.
+            Weekly signup by cohort, retention decay, and DAU/MAU stickiness by customer segment.
           </p>
         </div>
         <Pills
