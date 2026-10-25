@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import 'tailwindcss';
+
+/* Design tokens taken from the reference screenshot: warm off-white page,
+   near-black ink, white rounded cards, muted accent colors. */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-paper: #f3f2ee;
+  --color-card: #ffffff;
+  --color-ink: #141414;
+  --color-muted: #77756f;
+  --color-line: #e4e2db;
+  --color-accent: #c8553d;   /* terracotta */
+  --color-sage: #8a9a82;
+  --color-lilac: #8e86c4;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
