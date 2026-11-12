@@ -18,7 +18,8 @@ export const dashboards: DashboardInfo[] = [
     name: 'Marketing & Growth',
     description: 'Channel mix, CAC vs. LTV and a clickable acquisition funnel.',
     tags: ['Acquisition', 'LTV : CAC', 'Funnel'],
-    ready: false,
+    ready: true,
+    preview: 'marketing-growth',
   },
   {
     slug: 'product-analytics',

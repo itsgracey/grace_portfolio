@@ -9,6 +9,7 @@ import NotFound from './NotFound'
 // Each dashboard is loaded only when someone opens it ("lazy"), so the
 // homepage stays fast. Add new dashboards here once they're built.
 const COMPONENTS: Record<string, LazyExoticComponent<ComponentType>> = {
+  'marketing-growth': lazy(() => import('../dashboards/marketing-growth/MarketingGrowthDashboard')),
   'product-analytics': lazy(() => import('../dashboards/product-analytics/ProductAnalyticsDashboard')),
 }
 
