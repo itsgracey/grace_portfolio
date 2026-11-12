@@ -36,6 +36,7 @@ export const dashboards: DashboardInfo[] = [
     name: 'Portfolio Meta-Analytics',
     description: 'Analytics on this very site: traffic, where visitors come from and how they move through it.',
     tags: ['Traffic', 'Geo', 'User journeys'],
-    ready: false,
+    ready: true,
+    preview: 'portfolio-meta',
   },
 ]
