@@ -16,14 +16,14 @@ function Pills<T extends string | number>({
   label: string
 }) {
   return (
-    <div role="group" aria-label={label} className="inline-flex gap-1 rounded-full bg-paper p-1">
+    <div role="group" aria-label={label} className="inline-flex gap-1 rounded-full bg-tint p-1">
       {options.map((o) => (
         <button
           key={String(o.value)}
           onClick={() => onChange(o.value)}
           aria-pressed={value === o.value}
           className={`rounded-full px-4 py-1.5 text-sm transition-colors ${
-            value === o.value ? 'bg-ink text-white' : 'text-muted hover:text-ink'
+            value === o.value ? 'bg-ink text-on-ink' : 'text-muted hover:text-ink'
           }`}
         >
           {o.label}
@@ -35,7 +35,7 @@ function Pills<T extends string | number>({
 
 function Kpi({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
-    <div className="rounded-2xl bg-card p-5">
+    <div className="rounded-2xl bg-card p-5 shadow-soft">
       <p className="text-sm text-muted">{label}</p>
       <p className="mt-2 text-4xl font-light tracking-tight tabular-nums">{value}</p>
       {note && <p className="mt-1 text-xs text-muted">{note}</p>}
@@ -84,7 +84,7 @@ export default function ProductAnalyticsDashboard() {
         <Kpi label="Monthly active users" value={latest.mau.toLocaleString()} note={`${latest.dau.toLocaleString()} daily active`} />
       </div>
 
-      <div className="rounded-3xl bg-card p-6">
+      <div className="rounded-3xl bg-card p-6 shadow-soft">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-xl font-medium">Retention cohorts</h2>
           <Pills
@@ -100,7 +100,7 @@ export default function ProductAnalyticsDashboard() {
         <CohortHeatmap rows={cohorts} mode={mode} />
       </div>
 
-      <div className="rounded-3xl bg-card p-6">
+      <div className="rounded-3xl bg-card p-6 shadow-soft">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-xl font-medium">Engagement</h2>
           <Pills

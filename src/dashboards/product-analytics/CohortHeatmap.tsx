@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useChartColors } from '../../theme/ThemeProvider'
 import type { CohortRow } from './data'
 
 interface Props {
@@ -6,18 +7,17 @@ interface Props {
   mode: 'percent' | 'users'
 }
 
-// Map a retention % to a background color: pale -> terracotta.
-function cellColor(pct: number) {
+// Map a retention % to a background color: pale (or dark, in dark mode) -> terracotta.
+function cellColor(pct: number, from: readonly number[], to: readonly number[]) {
   const t = Math.min(1, pct / 100)
-  // mix between a warm off-white and the accent color
-  const from = [247, 241, 235]
-  const to = [200, 85, 61]
+  // mix between the low color and the accent color
   const mix = from.map((f, i) => Math.round(f + (to[i] - f) * Math.pow(t, 0.8)))
   return `rgb(${mix.join(',')})`
 }
 
 export default function CohortHeatmap({ rows, mode }: Props) {
   const [hover, setHover] = useState<{ r: number; w: number } | null>(null)
+  const { heatLow, heatHigh } = useChartColors()
   const weeks = rows[0]?.retention.length ?? 0
 
   return (
@@ -49,9 +49,9 @@ export default function CohortHeatmap({ rows, mode }: Props) {
                       onMouseEnter={() => setHover({ r, w })}
                       onMouseLeave={() => setHover(null)}
                       className={`h-9 cursor-default rounded-md text-center tabular-nums transition-transform hover:scale-105 ${
-                        pct > 55 ? 'text-white' : 'text-ink'
+                        pct > 55 ? 'text-white' : 'text-ink dark:text-white/85'
                       } ${hover && hover.r !== r && hover.w !== w ? 'opacity-50' : ''}`}
-                      style={{ backgroundColor: cellColor(pct) }}
+                      style={{ backgroundColor: cellColor(pct, heatLow, heatHigh) }}
                     >
                       {mode === 'percent' ? `${pct}%` : Math.round((row.size * pct) / 100).toLocaleString()}
                     </td>
@@ -78,7 +78,7 @@ export default function CohortHeatmap({ rows, mode }: Props) {
       {/* Legend */}
       <div className="mt-2 flex items-center gap-2 text-xs text-muted">
         <span>0%</span>
-        <div className="h-2 w-40 rounded-full" style={{ background: `linear-gradient(to right, ${cellColor(0)}, ${cellColor(100)})` }} />
+        <div className="h-2 w-40 rounded-full" style={{ background: `linear-gradient(to right, ${cellColor(0, heatLow, heatHigh)}, ${cellColor(100, heatLow, heatHigh)})` }} />
         <span>100%</span>
       </div>
     </div>

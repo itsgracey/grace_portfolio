@@ -1,10 +1,18 @@
+import '@fontsource-variable/open-sans'
+import '@fontsource-variable/playfair-display'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App'
+import { ThemeProvider } from './theme/ThemeProvider'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
   </StrictMode>,
 )

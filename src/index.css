@@ -1,22 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 @import 'tailwindcss';
 
-/* Design tokens taken from the reference screenshot: warm off-white page,
-   near-black ink, white rounded cards, muted accent colors. */
+/* Lets you write `dark:` in class names (e.g. dark:hidden).
+   Dark mode is on when <html> has the class "dark". */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens, taken from the template: white page, navy headings,
+   coral accent, soft pink section backgrounds, navy footer.
+   Every color on the site comes from here, so changing one value here
+   changes it everywhere. */
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --color-paper: #f3f2ee;
-  --color-card: #ffffff;
-  --color-ink: #141414;
-  --color-muted: #77756f;
-  --color-line: #e4e2db;
-  --color-accent: #c8553d;   /* terracotta */
+  --font-sans: 'Open Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display Variable', ui-serif, Georgia, serif;
+
+  --color-paper: #ffffff;    /* page background */
+  --color-tint: #fff6f5;     /* soft pink section background */
+  --color-card: #ffffff;     /* cards */
+  --color-ink: #0e2a5c;      /* navy: headings, dark pills */
+  --color-body: #3d4555;     /* paragraph text */
+  --color-on-ink: #ffffff;   /* text sitting ON a navy pill */
+  --color-muted: #6b7385;    /* secondary text */
+  --color-line: #e8ebf1;     /* borders / dividers */
+  --color-band: #022b5e;     /* navy footer */
+  --color-on-band: #ffffff;  /* text on the navy footer */
+  --color-accent: #ee5a52;   /* coral */
   --color-sage: #8a9a82;
   --color-lilac: #8e86c4;
+
+  --shadow-soft: 0 10px 40px rgba(14, 42, 92, 0.08);
 }
 
-body {
-  background: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
+/* Dark mode: same token names, different values.
+   The ThemeToggle button adds/removes the "dark" class on <html>. */
+.dark {
+  --color-paper: #0b1424;
+  --color-tint: #0f1a2e;
+  --color-card: #14223c;
+  --color-ink: #e8edf7;
+  --color-body: #b6c0d3;
+  --color-on-ink: #0b1424;
+  --color-muted: #8f9cb5;
+  --color-line: #23324f;
+  --color-band: #060e1c;
+  --color-on-band: #e8edf7;
+  --color-accent: #ff6f66;
+  --color-sage: #a3b29b;
+  --color-lilac: #a49de0;
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    background: var(--color-paper);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    transition: background-color 0.2s, color 0.2s;
+  }
+  /* Headings use the serif font + navy ink, like the template. */
+  h1,
+  h2,
+  h3,
+  .font-serif {
+    font-variant-numeric: lining-nums; /* serif digits like "00" must not look like "oo" */
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    color: var(--color-ink);
+    font-weight: 600;
+  }
 }
