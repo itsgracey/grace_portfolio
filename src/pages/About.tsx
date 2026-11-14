@@ -26,7 +26,7 @@ export default function About() {
 
       <Section>
         <div className="grid items-center gap-14 md:grid-cols-[1fr_1.4fr]">
-          <Photo />
+          <Photo src={site.aboutPhoto} alt={site.aboutPhotoAlt} />
           <div>
             <h2 className="text-3xl tracking-tight">Analytics, built around decisions</h2>
             <div className="mt-4 mb-6 h-0.5 w-12 bg-ink/35" />

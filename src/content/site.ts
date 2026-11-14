@@ -13,6 +13,9 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/gracewyuen',
   // Your portrait (file lives in the `public` folder). To change it, replace public/grace.jpg or point this at another file.
   photo: '/grace.jpg',
+  // Photo on the About page (file lives in the `public` folder).
+  aboutPhoto: '/grace-about.jpg',
+  aboutPhotoAlt: `${'Grace Yuen'} holding a speech bubble that reads “I see data people” and pointing at the camera`,
 }
 
 export const about = [
