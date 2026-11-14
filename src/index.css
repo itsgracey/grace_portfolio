@@ -5,7 +5,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* Design tokens, taken from the template: white page, navy headings,
-   coral accent, soft pink section backgrounds, navy footer.
+   sky-blue accent, pale blue section backgrounds, dark footer.
    Every color on the site comes from here, so changing one value here
    changes it everywhere. */
 @theme {
@@ -13,16 +13,18 @@
   --font-serif: 'Playfair Display Variable', ui-serif, Georgia, serif;
 
   --color-paper: #ffffff;    /* page background */
-  --color-tint: #fff6f5;     /* soft pink section background */
+  --color-tint: #eef6fb;     /* pale blue section background */
   --color-card: #ffffff;     /* cards */
-  --color-ink: #0e2a5c;      /* navy: headings, dark pills */
+  --color-ink: #0b3c5d;      /* Prussian blue: headings, dark pills */
   --color-body: #3d4555;     /* paragraph text */
   --color-on-ink: #ffffff;   /* text sitting ON a navy pill */
-  --color-muted: #6b7385;    /* secondary text */
+  --color-muted: #626a7c;    /* secondary text (4.5:1+ on white and pale blue) */
   --color-line: #e8ebf1;     /* borders / dividers */
-  --color-band: #022b5e;     /* navy footer */
+  --color-band: #1d2731;     /* ivory black footer */
   --color-on-band: #ffffff;  /* text on the navy footer */
-  --color-accent: #ee5a52;   /* coral */
+  --color-accent: #328cc1;   /* sky blue: decorative only (bars, icons, shapes) */
+  --color-accent-strong: #1f6f9f; /* deeper blue: text, links, button fills (5.5:1 on white) */
+  --color-on-accent: #ffffff; /* text on a strong-accent button */
   --color-sage: #8a9a82;
   --color-lilac: #8e86c4;
 
@@ -42,7 +44,9 @@
   --color-line: #23324f;
   --color-band: #060e1c;
   --color-on-band: #e8edf7;
-  --color-accent: #ff6f66;
+  --color-accent: #5aaee0;
+  --color-accent-strong: #5aaee0;
+  --color-on-accent: #0b1424;
   --color-sage: #a3b29b;
   --color-lilac: #a49de0;
   --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.35);
@@ -50,6 +54,12 @@
 }
 
 @layer base {
+  /* Visible keyboard focus everywhere (only shows for keyboard users). */
+  :focus-visible {
+    outline: 2px solid var(--color-accent-strong);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
   body {
     background: var(--color-paper);
     color: var(--color-body);

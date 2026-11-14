@@ -24,7 +24,7 @@ export default function DashboardPage() {
 
   return (
     <Section tint className="min-h-[70vh] !pt-8">
-      <Link to="/portfolio" className="mb-8 inline-flex items-center gap-1 text-sm text-muted hover:text-accent">
+      <Link to="/portfolio" className="mb-8 inline-flex items-center gap-1 text-sm text-muted hover:text-accent-strong">
         <ArrowLeft size={14} /> All dashboards
       </Link>
       <Dashboard />

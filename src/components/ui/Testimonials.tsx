@@ -19,12 +19,12 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           type="button"
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
-          className="mt-4 cursor-pointer text-xs font-semibold text-accent underline-offset-4 hover:underline"
+          className="mt-4 cursor-pointer text-xs font-semibold text-accent-strong underline underline-offset-4 hover:no-underline"
         >
           {open ? 'Show less' : 'Read more'}
         </button>
       )}
-      <div className="mx-auto my-5 h-0.5 w-8 bg-accent" />
+      <div className="mx-auto my-5 h-0.5 w-8 bg-ink/35" />
       <figcaption>
         <p className="text-sm font-semibold text-ink">{t.name}</p>
         <p className="text-xs text-muted">{t.role}</p>

@@ -16,7 +16,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false) // mobile menu
 
   const linkCls = ({ isActive }: { isActive: boolean }) =>
-    `px-3 py-2 text-sm transition-colors ${isActive ? 'font-semibold text-accent' : 'text-ink hover:text-accent'}`
+    `px-3 py-2 text-sm transition-colors ${isActive ? 'font-semibold text-accent-strong' : 'text-ink hover:text-accent-strong'}`
 
   return (
     <header className="sticky top-0 z-20 border-b border-line/60 bg-paper/90 backdrop-blur">
@@ -37,7 +37,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Link to="/contact" className="hidden rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:opacity-85 sm:inline-flex">
+          <Link to="/contact" className="hidden rounded-md bg-accent-strong px-5 py-2.5 text-sm font-semibold text-on-accent hover:opacity-85 sm:inline-flex">
             Hire Me
           </Link>
           <button

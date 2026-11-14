@@ -21,7 +21,7 @@ export default function Journeys({ sessions }: { sessions: number }) {
                 aria-pressed={page === e.page}
                 className={`flex w-full items-center gap-3 rounded-xl p-2 text-left transition-colors ${page === e.page ? 'bg-tint' : 'hover:bg-tint/60'}`}
               >
-                <span className="w-40 shrink-0 text-sm text-ink">{e.page}</span>
+                <span className={`w-40 shrink-0 text-sm text-ink ${page === e.page ? 'font-semibold' : ''}`}>{e.page}</span>
                 <span className="h-5 flex-1">
                   <span
                     className={`block h-full rounded-r-md ${page === e.page ? 'bg-accent' : 'bg-ink/70'}`}

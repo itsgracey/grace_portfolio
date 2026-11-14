@@ -7,7 +7,7 @@ interface Props {
   mode: 'percent' | 'users'
 }
 
-// Map a retention % to a background color: pale (or dark, in dark mode) -> terracotta.
+// Map a retention % to a background color: pale (or dark, in dark mode) -> accent blue.
 function cellColor(pct: number, from: readonly number[], to: readonly number[]) {
   const t = Math.min(1, pct / 100)
   // mix between the low color and the accent color
@@ -38,7 +38,7 @@ export default function CohortHeatmap({ rows, mode }: Props) {
           <tbody>
             {rows.map((row, r) => (
               <tr key={row.cohort}>
-                <td className={`px-2 py-1 font-medium ${hover?.r === r ? 'text-accent' : ''}`}>{row.cohort}</td>
+                <td className={`px-2 py-1 font-medium ${hover?.r === r ? 'text-accent-strong' : ''}`}>{row.cohort}</td>
                 <td className="px-2 text-right text-muted tabular-nums">{row.size.toLocaleString()}</td>
                 {row.retention.map((pct, w) =>
                   pct === null ? (
@@ -49,7 +49,7 @@ export default function CohortHeatmap({ rows, mode }: Props) {
                       onMouseEnter={() => setHover({ r, w })}
                       onMouseLeave={() => setHover(null)}
                       className={`h-9 cursor-default rounded-md text-center tabular-nums transition-transform hover:scale-105 ${
-                        pct > 55 ? 'text-white' : 'text-ink dark:text-white/85'
+                        pct > 75 ? 'text-white dark:text-[#0b1424]' : pct > 40 ? 'text-white' : 'text-ink dark:text-white/85'
                       } ${hover && hover.r !== r && hover.w !== w ? 'opacity-50' : ''}`}
                       style={{ backgroundColor: cellColor(pct, heatLow, heatHigh) }}
                     >

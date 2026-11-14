@@ -36,7 +36,7 @@ export default function Contact() {
 
         <div className="mx-auto mt-14 max-w-2xl rounded-xl bg-tint p-8 text-center sm:p-12">
           <h2 className="text-3xl tracking-tight">Message Me</h2>
-          <div className="mx-auto mt-4 mb-6 h-0.5 w-12 bg-accent" />
+          <div className="mx-auto mt-4 mb-6 h-0.5 w-12 bg-ink/35" />
           <p>Whether you’re hiring for an analytics role or need help with a data question, I’d love to hear from you.</p>
           <div className="mt-7">
             <ButtonLink href={`mailto:${site.email}`}>Send an email</ButtonLink>

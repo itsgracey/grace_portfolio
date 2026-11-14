@@ -17,7 +17,7 @@ export default function Funnel({ stages }: { stages: FunnelStage[] }) {
               aria-pressed={open === i}
               className={`group flex w-full items-center gap-3 rounded-xl p-2 text-left transition-colors ${open === i ? 'bg-tint' : 'hover:bg-tint/60'}`}
             >
-              <span className="w-28 shrink-0 text-sm text-ink">{st.stage}</span>
+              <span className={`w-28 shrink-0 text-sm text-ink ${open === i ? 'font-semibold' : ''}`}>{st.stage}</span>
               <span className="h-7 flex-1">
                 <span
                   className={`block h-full rounded-r-lg transition-colors ${open === i ? 'bg-accent' : 'bg-ink/70 group-hover:bg-ink'}`}

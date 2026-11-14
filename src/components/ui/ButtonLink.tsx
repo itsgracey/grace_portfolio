@@ -16,7 +16,7 @@ export default function ButtonLink({
   children: ReactNode
 }) {
   const base = 'inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-85'
-  const styles = variant === 'solid' ? 'bg-accent text-white' : 'border border-ink/25 text-ink hover:border-ink'
+  const styles = variant === 'solid' ? 'bg-accent-strong text-on-accent' : 'border border-ink/25 text-ink hover:border-ink'
 
   if (href) {
     return (

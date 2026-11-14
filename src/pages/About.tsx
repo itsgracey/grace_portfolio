@@ -29,7 +29,7 @@ export default function About() {
           <Photo />
           <div>
             <h2 className="text-3xl tracking-tight">Analytics, built around decisions</h2>
-            <div className="mt-4 mb-6 h-0.5 w-12 bg-accent" />
+            <div className="mt-4 mb-6 h-0.5 w-12 bg-ink/35" />
             <p className="mb-4 text-lg text-ink">{site.intro}</p>
             <div className="space-y-4">
               {about.map((p) => (
@@ -37,7 +37,7 @@ export default function About() {
               ))}
             </div>
             <p className="mt-7 text-sm">Let’s talk.</p>
-            <a href={`mailto:${site.email}`} className="font-serif text-xl font-semibold text-ink hover:text-accent">
+            <a href={`mailto:${site.email}`} className="font-serif text-xl font-semibold text-ink underline decoration-accent-strong underline-offset-4 hover:text-accent-strong">
               {site.email}
             </a>
           </div>
@@ -48,7 +48,7 @@ export default function About() {
         <div className="grid gap-12 md:grid-cols-2">
           <div>
             <h2 className="text-3xl tracking-tight">Tools & strengths</h2>
-            <div className="mt-4 mb-6 h-0.5 w-12 bg-accent" />
+            <div className="mt-4 mb-6 h-0.5 w-12 bg-ink/35" />
             <p>From SQL and Tableau to experimentation and executive storytelling — the toolkit I use to take a question from raw data to a decision.</p>
             <div className="mt-7">
               <ButtonLink to="/contact">Work with me</ButtonLink>

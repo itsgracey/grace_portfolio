@@ -5,8 +5,8 @@ export type Theme = 'light' | 'dark'
 // Chart libraries (Recharts) need real color values, not CSS variables,
 // so the same palette as index.css is repeated here for charts.
 export const CHART_COLORS = {
-  light: { grid: '#e8ebf1', axis: '#6b7385', ink: '#0e2a5c', card: '#ffffff', accent: '#ee5a52', lilac: '#8e86c4', sage: '#8a9a82', heatLow: [255, 244, 243], heatHigh: [238, 90, 82] },
-  dark: { grid: '#23324f', axis: '#8f9cb5', ink: '#e8edf7', card: '#14223c', accent: '#ff6f66', lilac: '#a49de0', sage: '#a3b29b', heatLow: [26, 38, 62], heatHigh: [238, 90, 82] },
+  light: { grid: '#e8ebf1', axis: '#626a7c', ink: '#0b3c5d', card: '#ffffff', accent: '#328cc1', lilac: '#8e86c4', sage: '#8a9a82', heatLow: [238, 246, 251], heatHigh: [11, 60, 93] },
+  dark: { grid: '#23324f', axis: '#8f9cb5', ink: '#e8edf7', card: '#14223c', accent: '#5aaee0', lilac: '#a49de0', sage: '#a3b29b', heatLow: [26, 38, 62], heatHigh: [90, 174, 224] },
 } as const
 
 const ThemeContext = createContext<{ theme: Theme; toggle: () => void }>({ theme: 'light', toggle: () => {} })

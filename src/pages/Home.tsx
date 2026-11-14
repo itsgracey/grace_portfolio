@@ -24,7 +24,7 @@ export default function Home() {
       <section className="bg-tint">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-14 md:grid-cols-[1.2fr_1fr] md:py-20">
           <div>
-            <p className="text-sm font-semibold tracking-wide text-accent uppercase">{site.role}</p>
+            <p className="text-sm font-semibold tracking-wide text-accent-strong uppercase">{site.role}</p>
             <h1 className="mt-3 text-5xl leading-tight tracking-tight sm:text-6xl">
               Hi, I’m
               <br />
@@ -33,15 +33,15 @@ export default function Home() {
             <p className="mt-5 max-w-lg text-lg">{site.tagline}</p>
             <p className="mt-3 max-w-lg text-sm text-muted">{site.focus}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <ButtonLink to="/about">Learn more</ButtonLink>
-              <ButtonLink to="/portfolio" variant="outline">
-                View dashboards
+              <ButtonLink to="/portfolio">View dashboards</ButtonLink>
+              <ButtonLink to="/about" variant="outline">
+                About me
               </ButtonLink>
               <div className="ml-2 flex gap-2 text-ink">
-                <a href={site.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="grid size-10 place-items-center rounded-full hover:text-accent">
+                <a href={site.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="grid size-10 place-items-center rounded-full hover:text-accent-strong">
                   <LinkedinIcon />
                 </a>
-                <a href={`mailto:${site.email}`} aria-label="Email" className="grid size-10 place-items-center rounded-full hover:text-accent">
+                <a href={`mailto:${site.email}`} aria-label="Email" className="grid size-10 place-items-center rounded-full hover:text-accent-strong">
                   <Mail size={18} />
                 </a>
               </div>
@@ -57,7 +57,7 @@ export default function Home() {
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
             <h3 className="text-2xl">Turning data into decisions</h3>
-            <div className="mt-3 mb-5 h-0.5 w-12 bg-accent" />
+            <div className="mt-3 mb-5 h-0.5 w-12 bg-ink/35" />
             <div className="space-y-4">
               {about.map((p) => (
                 <p key={p}>{p}</p>
@@ -75,7 +75,7 @@ export default function Home() {
               ['35', 'executive and operational dashboards built at BitTorrent'],
             ].map(([n, label]) => (
               <li key={label} className="rounded-xl bg-card p-6 shadow-soft">
-                <p className="font-serif text-4xl font-semibold text-accent">{n}</p>
+                <p className="font-serif text-4xl font-semibold text-ink">{n}</p>
                 <p className="mt-2 text-sm">{label}</p>
               </li>
             ))}
@@ -101,7 +101,7 @@ export default function Home() {
                     <li key={it}>{it}</li>
                   ))}
                 </ul>
-                <Link to="/contact" aria-label={`Ask about ${s.name}`} className="mx-auto mt-6 grid size-9 place-items-center rounded-full border border-line text-ink hover:border-accent hover:text-accent">
+                <Link to="/contact" aria-label={`Ask about ${s.name}`} className="mx-auto mt-6 grid size-9 place-items-center rounded-full border border-line text-ink hover:border-accent hover:text-accent-strong-strong">
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -117,7 +117,7 @@ export default function Home() {
           {experience.map((j) => (
             <div key={j.company} className="rounded-xl bg-card p-6 shadow-soft">
               <h3 className="text-xl">{j.company}</h3>
-              <p className="mt-1 text-sm font-semibold text-accent">{j.roles[0].title}</p>
+              <p className="mt-1 text-sm font-semibold text-accent-strong">{j.roles[0].title}</p>
               <p className="text-xs text-muted tabular-nums">
                 {j.roles[j.roles.length - 1].start} – {j.roles[0].end}
               </p>
